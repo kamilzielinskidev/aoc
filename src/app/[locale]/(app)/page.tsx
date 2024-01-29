@@ -1,15 +1,33 @@
 import { Button } from "@/components/ui/button";
-import { useTranslations } from "next-intl";
-import Image from "next/image";
+import { getLocale, getTranslations } from "next-intl/server";
 
-const AboutSection = ({ title, text }: { title: string; text: string }) => (
-  <div className="mt-6">
-    <h3 className="text-2xl font-extrabold">{title}</h3>
-    <p className="mt-2 text-lg">{text}</p>
+import Image from "next/image";
+import { MoveInDiv } from "./MoveInDiv";
+import { posts } from "./posts";
+
+const AboutSection = ({
+  title,
+  text,
+  imgUrl,
+}: {
+  title: string;
+  text: string;
+  imgUrl: string;
+}) => (
+  <div className="mt-6 flex flex-col gap-4 items-start md:flex-row">
+    <div className="flex justify-center items-center">
+      <div className="w-52 h-52">
+        <Image src={imgUrl} alt="logo" width={200} height={200} />
+      </div>
+    </div>
+    <div className="mt-2">
+      <h3 className="text-2xl font-extrabold">{title}</h3>
+      <p className="mt-2 text-lg">{text}</p>
+    </div>
   </div>
 );
 
-const PostPreviewCard = ({
+const PostPreviewCard = async ({
   title,
   text,
   url,
@@ -20,7 +38,7 @@ const PostPreviewCard = ({
   url: string;
   date: string;
 }) => {
-  const t = useTranslations();
+  const t = await getTranslations();
 
   return (
     <div className="mt-4">
@@ -42,18 +60,20 @@ const PostPreviewCard = ({
 
 const sanitizeTextToUrl = (str: string) => str.toLowerCase().replace(" ", "-");
 
-const HeaderSection = () => {
-  const t = useTranslations();
+const HeaderSection = async () => {
+  const t = await getTranslations();
   return (
     <section>
       <div className="px-4 py-8">
         <div className="flex flex-col items-center gap-8 lg:flex-row">
-          <Image
-            src="/elf_przy_biurku_compressed.png"
-            alt="logo"
-            width={300}
-            height={300}
-          />
+          <div className="w-72">
+            <Image
+              src="/elf_przy_biurku_compressed.png"
+              alt="logo"
+              width={300}
+              height={300}
+            />
+          </div>
 
           <div className="text-center">
             <h1 className=" bg-clip-text sm:block">{t("Home.title")}</h1>
@@ -90,45 +110,72 @@ const HeaderSection = () => {
   );
 };
 
-const Home = () => {
-  const t = useTranslations();
+const truncateUpTo100 = (str: string) => {
+  const maxLength = 100;
+
+  if (str.length > maxLength) {
+    return str.substring(0, maxLength) + "...";
+  }
+
+  return str;
+};
+
+const Home = async () => {
+  const t = await getTranslations();
+  const locale = (await getLocale()) as "en" | "pl";
+
+  const lastTwoPosts = posts.slice(0, 2).map((post) => ({
+    ...post,
+    title: post.title[locale],
+    text: truncateUpTo100(post.text[locale]),
+  }));
 
   return (
-    <div className="snap-y snap-mandatory overflow-y-scroll px-8 md:px-32 lg:px-60">
-      <div className="snap-start scroll-m-2">
+    <div className="overflow-y-scroll px-8 md:px-32 lg:px-60">
+      <div className="">
         <HeaderSection />
       </div>
-      <div className="mt-8 snap-start scroll-m-2">
+      <div className="mt-8">
         <h2 id={sanitizeTextToUrl(t("Home.posts.label"))}>
           {t("Home.posts.label")}
         </h2>
-        <PostPreviewCard
-          date="2020-12-01"
-          title="Day 1: Report Repair"
-          text="After saving Christmas five years in a row, you've decided to take a vacation at a nice resort on a tropical island."
-          url="/posts/1"
-        />
-        <PostPreviewCard
-          date="2020-12-02"
-          title="Day 2: Password Philosophy"
-          text="Your flight departs in a few days from the coastal airport; the easiest way down to the coast from here is via toboggan."
-          url="/posts/2"
-        />
+        {lastTwoPosts.map((post) => (
+          <MoveInDiv key={post.id}>
+            <PostPreviewCard
+              date={post.date}
+              title={post.title}
+              text={post.text}
+              url={`/posts/${post.id}`}
+            />
+          </MoveInDiv>
+        ))}
       </div>
 
       <div className="mt-8 snap-start scroll-m-2">
         <h2 className="text-center" id={sanitizeTextToUrl(t("Home.about"))}>
           {t("Home.about")}
         </h2>
-        <AboutSection
-          title={t("Home.whatIs.title")}
-          text={t("Home.whatIs.text")}
-        />
-        <AboutSection title={t("Home.why.title")} text={t("Home.why.text")} />
-        <AboutSection
-          title={t("Home.whatWillYouFind.title")}
-          text={t("Home.whatWillYouFind.text")}
-        />
+        <MoveInDiv>
+          <AboutSection
+            imgUrl="/mikolaj_hackuje_compressed.png"
+            title={t("Home.whatIs.title")}
+            text={t("Home.whatIs.text")}
+          />
+        </MoveInDiv>
+        <MoveInDiv>
+          <AboutSection
+            imgUrl="/elf_mysli_o_czyms_compressed.png"
+            title={t("Home.why.title")}
+            text={t("Home.why.text")}
+          />
+        </MoveInDiv>
+        <MoveInDiv>
+          <AboutSection
+            imgUrl="/mikolaj_robi_matematyke_compressed.png"
+            title={t("Home.whatWillYouFind.title")}
+            text={t("Home.whatWillYouFind.text")}
+          />
+        </MoveInDiv>
       </div>
     </div>
   );
