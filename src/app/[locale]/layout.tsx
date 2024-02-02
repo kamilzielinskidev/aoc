@@ -1,7 +1,8 @@
+import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
+import { NextIntlClientProvider, useMessages } from "next-intl";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 
 const jetBrains = JetBrains_Mono({
   subsets: ["latin"],
@@ -18,6 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }>) {
+  const messages = useMessages();
+
   return (
     <html lang={locale}>
       <body
@@ -26,7 +29,9 @@ export default function RootLayout({
           jetBrains.className
         )}
       >
-        {children}
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

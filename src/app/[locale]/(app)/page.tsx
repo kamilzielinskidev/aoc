@@ -1,9 +1,9 @@
+import { MoveInDiv } from "@/components/MoveInDiv";
 import { Button } from "@/components/ui/button";
+import { posts } from "@/posts";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import Image from "next/image";
-import { MoveInDiv } from "./MoveInDiv";
-import { posts } from "./posts";
 
 const AboutSection = ({
   title,
@@ -14,7 +14,7 @@ const AboutSection = ({
   text: string;
   imgUrl: string;
 }) => (
-  <div className="mt-6 flex flex-col gap-4 items-start md:flex-row">
+  <div className="mt-6 flex flex-col gap-4 items-center md:flex-row md:items-start">
     <div className="flex justify-center items-center">
       <div className="w-52 h-52">
         <Image src={imgUrl} alt="logo" width={200} height={200} />
@@ -131,10 +131,8 @@ const Home = async () => {
   }));
 
   return (
-    <div className="overflow-y-scroll px-8 md:px-32 lg:px-60">
-      <div className="">
-        <HeaderSection />
-      </div>
+    <div>
+      <HeaderSection />
       <div className="mt-8">
         <h2 id={sanitizeTextToUrl(t("Home.posts.label"))}>
           {t("Home.posts.label")}

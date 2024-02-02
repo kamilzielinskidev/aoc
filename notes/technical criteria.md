@@ -6,5 +6,5 @@
 - mobile focus
 - custom user data
 - PL/EN translations
-- different languages solutions calculates in WASM
+- different languages solutions calculates in WASM ?
 - the design of the app will be inspired by the Advent of Code website, so it will be a bit retro, bit hackerish, bit christmasish

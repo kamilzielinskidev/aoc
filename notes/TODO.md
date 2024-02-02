@@ -8,17 +8,26 @@ For each solution there will be a simple animation showing how the solution work
 
 - [x] setup core app
 - [x] setup translations (PL/EN)
-- [ ] create home page for describing the Advent of Code
+- [x] create home page for describing the Advent of Code
   - [x] header
     - [x] goto blog
       - [x] first two posts slugs
     - [x] goto list of days
     - [x] goto about
   - [x] about section
-  - [ ] animations
-  - [x] top navigation to next/previous/list
+  - [x] animations
+- [x] top navigation to next/previous/list
+  - [x] make previous disabled on first day and home page
+  - [x] make next disabled on last day
 - [ ] create list page for showing all days
 - [ ] create a blog page
+- [ ] smooth animation between rerouting
+- [ ] create a day template
+  - [ ] title
+  - [ ] tabs for switching between description/solutions/animation
+  - [ ] task description
+  - [ ] task solutions
+  - [ ] task animation with run and reset buttons
 - [ ] day 1
   - [ ] create page for day 1
   - [ ] create solution for day 1 in TypeScript
