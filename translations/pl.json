@@ -6,6 +6,10 @@
   "Solutions": {
     "title": "Rozwiązania"
   },
+  "Blog": {
+    "notFound": "Nie znaleziono posta :(",
+    "backToHome": "Powrót do strony głównej"
+  },
   "Home": {
     "title": "Advent of Code 2023 Rozwiązania",
     "header": {

@@ -1,4 +1,5 @@
 import { MoveInDiv } from "@/components/MoveInDiv";
+import { MoveInPageDiv } from "@/components/MoveInPageDiv";
 import { Button } from "@/components/ui/button";
 import { posts } from "@/posts";
 import { getLocale, getTranslations } from "next-intl/server";
@@ -45,7 +46,7 @@ const PostPreviewCard = async ({
       <div className="flex flex-col gap-2">
         <div className="flex justify-between">
           <h3>{title}</h3>
-          <p>{date}</p>
+          <p className="text-nowrap">{date}</p>
         </div>
         <div className="">
           <p className="line-clamp-2">{text}</p>
@@ -131,7 +132,7 @@ const Home = async () => {
   }));
 
   return (
-    <div>
+    <MoveInPageDiv>
       <HeaderSection />
       <div className="mt-8">
         <h2 id={sanitizeTextToUrl(t("Home.posts.label"))}>
@@ -143,7 +144,7 @@ const Home = async () => {
               date={post.date}
               title={post.title}
               text={post.text}
-              url={`/posts/${post.id}`}
+              url={`/blog/${post.id}`}
             />
           </MoveInDiv>
         ))}
@@ -175,7 +176,7 @@ const Home = async () => {
           />
         </MoveInDiv>
       </div>
-    </div>
+    </MoveInPageDiv>
   );
 };
 

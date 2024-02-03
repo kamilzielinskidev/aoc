@@ -19,9 +19,9 @@ For each solution there will be a simple animation showing how the solution work
 - [x] top navigation to next/previous/list
   - [x] make previous disabled on first day and home page
   - [x] make next disabled on last day
-- [ ] create list page for showing all days
-- [ ] create a blog page
-- [ ] smooth animation between rerouting
+- [x] create list page for showing all days
+- [x] create a blog page
+- [x] smooth animation between rerouting
 - [ ] create a day template
   - [ ] title
   - [ ] tabs for switching between description/solutions/animation

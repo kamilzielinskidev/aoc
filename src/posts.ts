@@ -2,7 +2,6 @@ export const posts = [
   {
     id: 1,
     date: "2024-01-29",
-    url: "",
     title: { en: "Initial release", pl: "Pierwsza wersja" },
     text: {
       en: "I've put the app online. Initial homepage done.",
@@ -12,7 +11,6 @@ export const posts = [
   {
     id: 2,
     date: "2024-02-01",
-    url: "",
     title: {
       en: "Navigation bar and initial first day",
       pl: "Pasek nawigacji i pierwszy dzień wstępnie",
@@ -25,7 +23,6 @@ export const posts = [
   {
     id: 3,
     date: "2024-02-02",
-    url: "",
     title: {
       en: "Translations for tasks, soluions list",
       pl: "Tłumaczenia dla zadań, listy rozwiązań",
