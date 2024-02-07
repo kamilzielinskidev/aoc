@@ -34,5 +34,12 @@
       "title": "What will you find here?",
       "text": "You will find my solutions to the Advent of Code 2023 puzzles in four different languages: TypeScript, Kotlin, Rust, Go and C++.\n\nYou will also be able to put your own input and see the result of the solution.\n\nAdditionally, you will find simple animations and visualizations of how the solutions work."
     }
+  },
+  "Day": {
+    "Tabs": {
+      "Task": "Task",
+      "Solutions": "Solutions",
+      "Try it": "Try it"
+    }
   }
 }

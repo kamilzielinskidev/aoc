@@ -34,5 +34,12 @@
       "title": "Co tutaj znajdziesz?",
       "text": "Znajdziesz tutaj moje rozwiązania zagadek z Advent of Code 2023 w czterech różnych językach programowania: TypeScript, Kotlin, Rust, Go i C++.\n\nBędziesz mógł również podać własne dane wejściowe i zobaczyć wynik działania rozwiązania.\n\nDodatkowo, znajdziesz tutaj proste animacje i wizualizacje tego jak działają rozwiązania."
     }
+  },
+  "Day": {
+    "Tabs": {
+      "Task": "Zadanie",
+      "Solutions": "Rozwiązania",
+      "Try it": "Wypróbuj to"
+    }
   }
 }
