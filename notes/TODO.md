@@ -23,32 +23,24 @@ For each solution there will be a simple animation showing how the solution work
 - [x] create a blog page
 - [x] smooth animation between rerouting
 - [ ] create a day template
-  - [ ] title
-  - [ ] tabs for switching between description/solutions/animation
-  - [ ] task description
+  - [x] title
+  - [x] tabs for switching between description/solutions/animation
+  - [x] task description
   - [ ] task solutions
-  - [ ] task animation with run and reset buttons
+  - [x] task animation with run and reset buttons
 - [ ] day 1
   - [ ] create page for day 1
   - [ ] create solution for day 1 in TypeScript
   - [ ] create solution for day 1 in Kotlin
-  - [ ] create solution for day 1 in Rust
-  - [ ] create solution for day 1 in Go
-  - [ ] create solution for day 1 in C++
   - [ ] create animation for day 1
 - [ ] day 2
   - [ ] create page for day 2
   - [ ] create solution for day 2 in TypeScript
   - [ ] create solution for day 2 in Kotlin
-  - [ ] create solution for day 2 in Rust
-  - [ ] create solution for day 2 in Go
-  - [ ] create solution for day 2 in C++
   - [ ] create animation for day 2
 - [ ] day 3
   - [ ] create page for day 3
   - [ ] create solution for day 3 in TypeScript
   - [ ] create solution for day 3 in Kotlin
-  - [ ] create solution for day 3 in Rust
-  - [ ] create solution for day 3 in Go
-  - [ ] create solution for day 3 in C++
   - [ ] create animation for day 3
+- [ ] add rust, cpp and go solutions

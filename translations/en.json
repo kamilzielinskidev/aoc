@@ -4,7 +4,9 @@
     "solutions": "Solutions"
   },
   "Solutions": {
-    "title": "Solutions"
+    "title": "Solutions",
+    "notFound": "Solution not found :(",
+    "backToHome": "Back to home"
   },
   "Blog": {
     "notFound": "Post not found :(",
@@ -38,8 +40,12 @@
   "Day": {
     "Tabs": {
       "Task": "Task",
-      "Solutions": "Solutions",
+      "Solutions": "Code",
       "Try it": "Try it"
+    },
+    "Animation": {
+      "Run": "Run",
+      "Reset": "Reset"
     }
   }
 }

@@ -4,7 +4,9 @@
     "solutions": "Rozwiązania"
   },
   "Solutions": {
-    "title": "Rozwiązania"
+    "title": "Rozwiązania",
+    "notFound": "Nie znaleziono Rozwiązania :(",
+    "backToHome": "Powrót do strony głównej"
   },
   "Blog": {
     "notFound": "Nie znaleziono posta :(",
@@ -38,8 +40,12 @@
   "Day": {
     "Tabs": {
       "Task": "Zadanie",
-      "Solutions": "Rozwiązania",
-      "Try it": "Wypróbuj to"
+      "Solutions": "Kod",
+      "Try it": "Wypróbuj"
+    },
+    "Animation": {
+      "Run": "Uruchom",
+      "Reset": "Resetuj"
     }
   }
 }

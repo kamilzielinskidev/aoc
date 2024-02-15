@@ -1,20 +1,40 @@
 import { MarkdownPreview } from "@/components/MarkdownPreview";
+import { MoveInPageDiv } from "@/components/MoveInPageDiv";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Link } from "@/navigation";
 import { tasks } from "@/tasks";
 import { getLocale, getTranslations } from "next-intl/server";
 
-const Day1 = async () => {
+const taskIsValid = (task: string): task is `${number}_${number}` => {
+  return /(\d+)_(\d+)/.test(task);
+};
+
+const Task = async ({ params: { task } }: { params: { task: string } }) => {
   const locale = (await getLocale()) as "pl" | "en";
   const t = await getTranslations();
-  const task = tasks.at(0);
 
-  if (task === undefined) {
-    return null;
+  const taskToDisplay = !taskIsValid(task) ? undefined : tasks[task];
+
+  if (taskToDisplay === undefined) {
+    return (
+      <MoveInPageDiv>
+        <div className="p-4">
+          <h1>{t("Solutions.notFound")}</h1>
+          <div className="mt-4">
+            <Link className="underline text-primary" href="/">
+              {t("Solutions.backToHome")}
+            </Link>
+          </div>
+        </div>
+      </MoveInPageDiv>
+    );
   }
+
+  const Interactive = taskToDisplay.Interactive;
 
   return (
     <div className="py-4">
-      <h1>{task.title[locale]}</h1>
+      <h1>{taskToDisplay.title[locale]}</h1>
       <Tabs defaultValue="task" className="mt-4">
         <TabsList className="bg-background border-primary border p-0">
           <TabsTrigger
@@ -37,7 +57,7 @@ const Day1 = async () => {
           </TabsTrigger>
         </TabsList>
         <TabsContent value="task">
-          <MarkdownPreview source={task.description[locale]} />
+          <MarkdownPreview source={taskToDisplay.description[locale]} />
         </TabsContent>
         <TabsContent value="solutions">
           <Tabs defaultValue="typescript">
@@ -50,19 +70,25 @@ const Day1 = async () => {
               </TabsTrigger>
               <TabsTrigger
                 className="h-full aria-selected:!bg-primary aria-selected:!text-primary-foreground"
-                value="Rust"
+                value="Kotlin"
               >
-                Rust
+                Kotlin
               </TabsTrigger>
             </TabsList>
-            <TabsContent value="typescript">Some typescript code</TabsContent>
-            <TabsContent value="Rust">Some Rust code</TabsContent>
+            <TabsContent value="typescript">
+              This part is in progress...
+            </TabsContent>
+            <TabsContent value="Kotlin">
+              This part is in progress...
+            </TabsContent>
           </Tabs>
         </TabsContent>
-        <TabsContent value="try">Try it here.</TabsContent>
+        <TabsContent value="try">
+          <Interactive />
+        </TabsContent>
       </Tabs>
     </div>
   );
 };
 
-export default Day1;
+export default Task;

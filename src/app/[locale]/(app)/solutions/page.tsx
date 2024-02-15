@@ -1,6 +1,6 @@
 import { MoveInPageDiv } from "@/components/MoveInPageDiv";
 import { Link } from "@/navigation";
-import { tasks } from "@/tasks";
+import { tasksList } from "@/tasks";
 import { getLocale, getTranslations } from "next-intl/server";
 
 const Solutions = async () => {
@@ -13,14 +13,13 @@ const Solutions = async () => {
         <h1>{t("Solutions.title")}</h1>
         <div className="mt-4">
           <ul>
-            {tasks.map((task, index) => {
+            {tasksList.map((task) => {
               return (
                 <li key={task.title[locale]}>
                   <Link
-                    href={`/solutions/${index + 1}`}
+                    href={`/solutions/${task.id}`}
                     className="underline text-primary"
                   >
-                    <span>{index + 1}. </span>
                     <span>{task.title[locale]}</span>
                   </Link>
                 </li>

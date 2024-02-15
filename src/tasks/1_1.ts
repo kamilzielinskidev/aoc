@@ -1,4 +1,4 @@
-const en = `
+const task_en = `
 Something is wrong with global snow production, and you've been selected to take a look. The Elves have even given you a map; on it, they've used stars to mark the top fifty locations that are likely to be having problems.
 
 You've been doing this long enough to know that to restore snow operations, you need to check all _fifty stars_ by December 25th.
@@ -23,7 +23,7 @@ In this example, the calibration values of these four lines are \`12\`, \`38\`, 
 Consider your entire calibration document. _What is the sum of all of the calibration values?_
 `;
 
-const pl = `
+const task_pl = `
 Coś jest nie tak z globalną produkcją śniegu, i zostałeś wybrany, aby to sprawdzić. Elfy nawet dały ci mapę; na niej użyły gwiazd, aby oznaczyć pięćdziesiąt najpewniejszych lokalizacji, które prawdopodobnie mają problemy.
 
 Robisz to wystarczająco długo, aby wiedzieć, że aby przywrócić produkcję śniegu, musisz sprawdzić wszystkie _pięćdziesiąt gwiazd_ do 25 grudnia.
@@ -49,6 +49,6 @@ Rozważ cały swój dokument kalibracyjny. _Jaka jest suma wszystkich wartości 
 `;
 
 export default {
-  en,
-  pl,
+  task_en,
+  task_pl,
 };
