@@ -84,7 +84,7 @@ const Task = async ({ params: { task } }: { params: { task: string } }) => {
           </Tabs>
         </TabsContent>
         <TabsContent value="try">
-          <Interactive />
+          <Interactive initialValue={taskToDisplay.initialValue} />
         </TabsContent>
       </Tabs>
     </div>

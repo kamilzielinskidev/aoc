@@ -5,7 +5,8 @@ import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 const getPreviousDayFromPathname = (pathname: string) => {
-  const day = pathname.split("/").at(-1);
+  const dayAndPart = pathname.split("/").at(-1);
+  const day = dayAndPart?.split("_").at(0);
 
   if (day === undefined) {
     return null;
@@ -18,18 +19,19 @@ const getPreviousDayFromPathname = (pathname: string) => {
       return null;
     }
 
-    if (parsedDay === 0) {
-      return null;
+    if (parsedDay === 1) {
+      return "0_1";
     }
 
-    return parsedDay - 1;
+    return `${parsedDay - 1}_${1}`;
   } catch (_) {
     return null;
   }
 };
 
 const getNextDayFromPathname = (pathname: string) => {
-  const day = pathname.split("/").at(-1);
+  const dayAndPart = pathname.split("/").at(-1);
+  const day = dayAndPart?.split("_").at(0);
 
   if (day === undefined) {
     return 1;
@@ -42,11 +44,11 @@ const getNextDayFromPathname = (pathname: string) => {
       return 1;
     }
 
-    if (parsedDay === 1) {
+    if (parsedDay === 2) {
       return null;
     }
 
-    return parsedDay + 1;
+    return `${parsedDay + 1}_1`;
   } catch (_) {
     return null;
   }
@@ -65,7 +67,7 @@ export const NavigationBar: FC<{}> = () => {
     <div className="flex justify-between p-2">
       {previousDay === null ? (
         <div />
-      ) : previousDay === 0 ? (
+      ) : previousDay === "0_1" ? (
         <Link href="/solutions" className="underline text-primary">
           {"<<<"}
         </Link>

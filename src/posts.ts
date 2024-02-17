@@ -32,4 +32,16 @@ export const posts = [
       pl: "Dodane tłumaczenia dla zadań, listy rozwiązań.",
     },
   },
+  {
+    id: 4,
+    date: "2024-02-17",
+    title: {
+      en: "Animacje do dnia 1 i 2",
+      pl: "Animations for day 1 and 2",
+    },
+    text: {
+      en: "Added animations for day 1 and 2. No code solutions provided yet.",
+      pl: "Dodane animacje dla dnia 1 i 2. Brak kodu rozwiązań.",
+    },
+  },
 ];

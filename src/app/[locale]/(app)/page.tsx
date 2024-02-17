@@ -125,11 +125,14 @@ const Home = async () => {
   const t = await getTranslations();
   const locale = (await getLocale()) as "en" | "pl";
 
-  const lastTwoPosts = posts.slice(0, 2).map((post) => ({
-    ...post,
-    title: post.title[locale],
-    text: truncateUpTo100(post.text[locale]),
-  }));
+  const lastTwoPosts = posts
+    .toReversed()
+    .slice(0, 2)
+    .map((post) => ({
+      ...post,
+      title: post.title[locale],
+      text: truncateUpTo100(post.text[locale]),
+    }));
 
   return (
     <MoveInPageDiv>

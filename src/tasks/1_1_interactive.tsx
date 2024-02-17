@@ -1,11 +1,7 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { useTranslations } from "next-intl";
-import { FC, memo, useCallback, useEffect, useState } from "react";
-
-const delayPromise = (ms: number) =>
-  new Promise((resolve) => setTimeout(resolve, ms));
+import { Runner } from "@/components/Runner";
+import { delayPromise } from "@/utils/delayPromise";
+import { FC, useEffect, useState } from "react";
 
 const Animation: FC<{ data: string }> = ({ data }) => {
   const lines = data.split("\n");
@@ -42,7 +38,7 @@ const Animation: FC<{ data: string }> = ({ data }) => {
         10
       );
 
-      const result = firstDigitValue + lastDigitValue;
+      const result = parseInt(`${firstDigitValue}${lastDigitValue}`);
       setLinesResults((prev) => [...prev, result]);
 
       setDataToDisplay((prev) => {
@@ -51,7 +47,7 @@ const Animation: FC<{ data: string }> = ({ data }) => {
         return copy;
       });
 
-      await delayPromise(1000);
+      await delayPromise(100);
     }
   };
 
@@ -64,89 +60,39 @@ const Animation: FC<{ data: string }> = ({ data }) => {
   }
 
   return (
-    <div>
-      <pre>
-        <div className="text-primary">
-          {linesResults.reduce((acc, curr) => acc + curr, 0)}
-        </div>
-        {dataToDisplay.map((line, i) => (
-          <div key={i}>
-            {line.map((char, j) => (
-              <span
-                key={j}
-                className={`${
-                  char.color === "white" ? "text-white" : "text-primary"
-                }`}
-              >
-                {char.char}
-              </span>
-            ))}
-            <span className="text-primary">
-              {linesResults.at(i) !== undefined
-                ? ` => ${linesResults.at(i)}`
-                : ""}
+    <pre>
+      <div className="text-primary">
+        {linesResults.reduce((acc, curr) => acc + curr, 0)}
+      </div>
+      {dataToDisplay.map((line, i) => (
+        <div key={i}>
+          {line.map((char, j) => (
+            <span
+              key={j}
+              className={`${
+                char.color === "white" ? "text-white" : "text-primary"
+              }`}
+            >
+              {char.char}
             </span>
-          </div>
-        ))}
-      </pre>
-    </div>
+          ))}
+          <span className="text-primary">
+            {linesResults.at(i) !== undefined
+              ? ` => ${linesResults.at(i)}`
+              : ""}
+          </span>
+        </div>
+      ))}
+    </pre>
   );
 };
 
-const initialInputValue = "1abc2\npqr3stu8vwx\na1b2c3d4e5f\ntreb7uchet";
-
-// TODO: make this reuseable, so only animation will be different
-export const Interactive: FC = () => {
-  const t = useTranslations();
-  const [inputValue, setInputValue] = useState(initialInputValue);
-
-  const [isRunning, setIsRunning] = useState(false);
-
-  const handleInputChange = useCallback(
-    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setInputValue(e.target.value);
-    },
-    []
-  );
-
-  const handleRun = useCallback(() => {
-    setIsRunning(true);
-  }, []);
-
-  const handleReset = useCallback(() => {
-    setInputValue(initialInputValue);
-    setIsRunning(false);
-  }, []);
-
+export const Interactive: FC<{ initialValue: string }> = ({ initialValue }) => {
   return (
-    <div>
-      <Textarea
-        value={inputValue}
-        onChange={handleInputChange}
-        disabled={isRunning}
-      />
-      <div className="flex gap-2 mt-2">
-        <Button
-          className="border-primary text-primary hover:bg-primary-foreground hover:text-primary"
-          variant="outline"
-          onClick={handleRun}
-        >
-          {t("Day.Animation.Run")}
-        </Button>
-        <Button
-          className="border-primary text-primary hover:bg-primary-foreground hover:text-primary"
-          variant="outline"
-          onClick={handleReset}
-        >
-          {t("Day.Animation.Reset")}
-        </Button>
-      </div>
-      {!isRunning ? null : (
-        <div className="mt-2">
-          <Animation data={inputValue} />
-        </div>
-      )}
-    </div>
+    <Runner
+      initialData={initialValue}
+      animateComponent={(data) => <Animation data={data} />}
+    />
   );
 };
 
