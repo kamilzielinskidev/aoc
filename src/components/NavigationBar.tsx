@@ -44,7 +44,7 @@ const getNextDayFromPathname = (pathname: string) => {
       return 1;
     }
 
-    if (parsedDay === 2) {
+    if (parsedDay === 3) {
       return null;
     }
 

@@ -31,11 +31,43 @@ const parseSingleGame = (data: string) => {
   return result;
 };
 
+const styleSingleLineWithErrorTurns = (
+  line: string,
+  invalidTurns: number[]
+) => {
+  const parts = line.split(": ");
+  const gameNumber = parts[0];
+  const gameData = parts[1].split("; ");
+  const result = gameData.map((turn, index) => {
+    if (invalidTurns.includes(index)) {
+      return (
+        <span className="text-red-500">
+          {turn}
+          {gameData.length - 1 === index ? "" : "; "}
+        </span>
+      );
+    }
+    return (
+      <span>
+        {turn}
+        {gameData.length - 1 === index ? "" : "; "}
+      </span>
+    );
+  });
+  return (
+    <div>
+      <span>{gameNumber}</span>: {result}
+    </div>
+  );
+};
+
 const Animation: FC<{ data: string }> = ({ data }) => {
   const lines = data.split("\n");
   const games = lines.map(parseSingleGame);
 
   const [validLines, setValidLines] = useState<number[]>([]);
+  const [invalidLines, setInvalidLines] = useState<number[]>([]);
+  const [invalidTurns, setInvalidTurns] = useState<number[][]>([]);
   const [error, setError] = useState<string | null>(null);
 
   const run = async () => {
@@ -52,6 +84,17 @@ const Animation: FC<{ data: string }> = ({ data }) => {
 
       if (areAllGamesValid) {
         setValidLines((prev) => [...prev, i]);
+      }
+
+      if (!areAllGamesValid) {
+        setInvalidLines((prev) => [...prev, i]);
+        const invalidTurns = game.reduce((acc, curr, index) => {
+          if (curr.red > 12 || curr.green > 13 || curr.blue > 14) {
+            acc.push(index);
+          }
+          return acc;
+        }, [] as number[]);
+        setInvalidTurns((prev) => [...prev, invalidTurns]);
       }
 
       await delayPromise(100);
@@ -77,6 +120,13 @@ const Animation: FC<{ data: string }> = ({ data }) => {
             <div className="text-primary" key={index}>
               {line}
             </div>
+          );
+        }
+
+        if (invalidLines.includes(index)) {
+          return styleSingleLineWithErrorTurns(
+            line,
+            invalidTurns[invalidLines.indexOf(index)]
           );
         }
 

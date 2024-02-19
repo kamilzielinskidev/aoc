@@ -32,15 +32,16 @@ For each solution there will be a simple animation showing how the solution work
   - [ ] create page for day 1
   - [ ] create solution for day 1 in TypeScript
   - [ ] create solution for day 1 in Kotlin
-  - [ ] create animation for day 1
+  - [x] create animation for day 1
 - [ ] day 2
-  - [ ] create page for day 2
+  - [x] create page for day 2
   - [ ] create solution for day 2 in TypeScript
   - [ ] create solution for day 2 in Kotlin
-  - [ ] create animation for day 2
+  - [x] create animation for day 2
 - [ ] day 3
-  - [ ] create page for day 3
+  - [x] create page for day 3
   - [ ] create solution for day 3 in TypeScript
   - [ ] create solution for day 3 in Kotlin
-  - [ ] create animation for day 3
+  - [x] create animation for day 3
 - [ ] add rust, cpp and go solutions
+- [ ] add language switcher
