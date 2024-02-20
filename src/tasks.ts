@@ -5,6 +5,9 @@ import task3_1 from "./tasks/3_1";
 import interactive1_1 from "./tasks/1_1_interactive";
 import interactive2_1 from "./tasks/2_1_interactive";
 import interactive3_1 from "./tasks/3_1_interactive";
+import typescript1_1 from "./tasks/1_1.typescript";
+import typescript2_1 from "./tasks/2_1.typescript";
+import typescript3_1 from "./tasks/3_1.typescript";
 
 export const tasks: Record<
   `${number}_${number}`,
@@ -17,6 +20,9 @@ export const tasks: Record<
     description: {
       pl: string;
       en: string;
+    };
+    solution: {
+      typescript: string;
     };
     initialValue: string;
     Interactive: FC<{ initialValue: string }>;
@@ -32,6 +38,9 @@ export const tasks: Record<
       pl: task1_1.task_pl,
       en: task1_1.task_en,
     },
+    solution: {
+      typescript: typescript1_1,
+    },
     initialValue: task1_1.initialValue,
     Interactive: interactive1_1,
   },
@@ -45,6 +54,9 @@ export const tasks: Record<
       pl: task2_1.task_pl,
       en: task2_1.task_en,
     },
+    solution: {
+      typescript: typescript2_1,
+    },
     initialValue: task2_1.initialValue,
     Interactive: interactive2_1,
   },
@@ -57,6 +69,9 @@ export const tasks: Record<
     description: {
       pl: task3_1.task_pl,
       en: task3_1.task_en,
+    },
+    solution: {
+      typescript: typescript3_1,
     },
     initialValue: task3_1.initialValue,
     Interactive: interactive3_1,

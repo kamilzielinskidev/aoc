@@ -66,20 +66,11 @@ const Task = async ({ params: { task } }: { params: { task: string } }) => {
                 className="h-full aria-selected:!bg-primary aria-selected:!text-primary-foreground"
                 value="typescript"
               >
-                Typescript
-              </TabsTrigger>
-              <TabsTrigger
-                className="h-full aria-selected:!bg-primary aria-selected:!text-primary-foreground"
-                value="Kotlin"
-              >
-                Kotlin
+                TypeScript
               </TabsTrigger>
             </TabsList>
             <TabsContent value="typescript">
-              This part is in progress...
-            </TabsContent>
-            <TabsContent value="Kotlin">
-              This part is in progress...
+              <MarkdownPreview source={taskToDisplay.solution.typescript} />
             </TabsContent>
           </Tabs>
         </TabsContent>
