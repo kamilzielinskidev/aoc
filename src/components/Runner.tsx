@@ -14,21 +14,18 @@ export const Runner: FC<{
 
   const [isRunning, setIsRunning] = useState(false);
 
-  const handleInputChange = useCallback(
-    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setInputValue(e.target.value);
-    },
-    []
-  );
+  function handleInputChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
+    setInputValue(e.target.value);
+  }
 
-  const handleRun = useCallback(() => {
+  function handleRun() {
     setIsRunning(true);
-  }, []);
+  }
 
-  const handleReset = useCallback(() => {
+  function handleReset() {
     setInputValue(initialData);
     setIsRunning(false);
-  }, []);
+  }
 
   return (
     <div>

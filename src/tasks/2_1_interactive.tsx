@@ -41,14 +41,14 @@ const styleSingleLineWithErrorTurns = (
   const result = gameData.map((turn, index) => {
     if (invalidTurns.includes(index)) {
       return (
-        <span className="text-red-500">
+        <span className="text-red-500" key={index}>
           {turn}
           {gameData.length - 1 === index ? "" : "; "}
         </span>
       );
     }
     return (
-      <span>
+      <span key={index}>
         {turn}
         {gameData.length - 1 === index ? "" : "; "}
       </span>
