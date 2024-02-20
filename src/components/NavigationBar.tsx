@@ -1,7 +1,7 @@
 "use client";
 
 import { Link, usePathname } from "@/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { FC } from "react";
 
 const getPreviousDayFromPathname = (pathname: string) => {
@@ -57,6 +57,7 @@ const getNextDayFromPathname = (pathname: string) => {
 export const NavigationBar: FC<{}> = () => {
   const t = useTranslations();
   const pathname = usePathname();
+  const locale = useLocale() as "en" | "pl";
 
   const previousDay = getPreviousDayFromPathname(pathname);
   const nextDay = getNextDayFromPathname(pathname);
@@ -79,17 +80,39 @@ export const NavigationBar: FC<{}> = () => {
           {"<<<"}
         </Link>
       )}
-      <div className="flex gap-8">
-        {!renderHomeLink ? null : (
-          <Link href="/" className="underline text-primary">
-            {t("Navigation.home")}
-          </Link>
-        )}
-        {!renderSolutionLink ? null : (
-          <Link href="/solutions" className="underline text-primary">
-            {t("Navigation.solutions")}
-          </Link>
-        )}
+      <div className="flex flex-col items-center">
+        <div className="flex gap-8">
+          {!renderHomeLink ? null : (
+            <Link href="/" className="underline text-primary">
+              {t("Navigation.home")}
+            </Link>
+          )}
+          {!renderSolutionLink ? null : (
+            <Link href="/solutions" className="underline text-primary">
+              {t("Navigation.solutions")}
+            </Link>
+          )}
+        </div>
+        <div>
+          <span>[</span>
+          {locale === "en" ? (
+            <span>EN</span>
+          ) : (
+            <Link href="/" locale="en" className="underline text-primary">
+              EN
+            </Link>
+          )}
+          <span>/</span>
+          {locale === "pl" ? (
+            <span>PL</span>
+          ) : (
+            <Link href="/" locale="pl" className="underline text-primary">
+              PL
+            </Link>
+          )}
+
+          <span>]</span>
+        </div>
       </div>
       {nextDay === null ? (
         <div />
