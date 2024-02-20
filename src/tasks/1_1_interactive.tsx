@@ -19,7 +19,8 @@ const Animation: FC<{ data: string }> = ({ data }) => {
       const line = dataToDisplay[i];
       const firstDigitIndex = line.findIndex((char) => /\d/.test(char.char));
       const lastDigitIndex = line
-        .toReversed()
+        .slice()
+        .reverse()
         .findIndex((char) => /\d/.test(char.char));
 
       if (firstDigitIndex === -1 || lastDigitIndex === -1) {

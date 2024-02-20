@@ -126,7 +126,8 @@ const Home = async () => {
   const locale = (await getLocale()) as "en" | "pl";
 
   const lastTwoPosts = posts
-    .toReversed()
+    .slice()
+    .reverse()
     .slice(0, 2)
     .map((post) => ({
       ...post,
