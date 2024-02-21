@@ -219,7 +219,7 @@ const Animation: FC<{ data: string }> = ({ data }) => {
 
   useEffect(() => {
     run();
-  }, [run]);
+  }, []);
 
   return (
     <pre>
