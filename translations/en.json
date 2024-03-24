@@ -8,22 +8,13 @@
     "notFound": "Solution not found :(",
     "backToHome": "Back to home"
   },
-  "Blog": {
-    "notFound": "Post not found :(",
-    "backToHome": "Back to home"
-  },
   "Home": {
     "title": "Advent of Code 2023 Solutions",
     "header": {
       "goToAbout": "About",
-      "goToSolutions": "Solutions",
-      "goToLatestPosts": "Latest posts"
+      "goToSolutions": "Solutions"
     },
     "about": "About",
-    "posts": {
-      "label": "Latest posts",
-      "readMore": "Read more"
-    },
     "whatIs": {
       "title": "What is Advent of Code?",
       "text": "Advent of Code is an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like."

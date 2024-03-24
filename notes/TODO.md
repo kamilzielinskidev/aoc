@@ -40,5 +40,26 @@ For each solution there will be a simple animation showing how the solution work
   - [x] create page for day 3
   - [x] create solution for day 3 in TypeScript
   - [x] create animation for day 3
-- [ ] add language switcher
-- [ ] add rust, kotlin, cpp and go solutions
+- [x] remove posts
+- [x] move all solutions to the main page
+- [x] add language switcher
+- [ ] day 1
+  - [ ] rust
+  - [ ] kotlin
+  - [ ] cpp
+  - [ ] go
+- [ ] day 2
+  - [ ] rust
+  - [ ] kotlin
+  - [ ] cpp
+  - [ ] go
+- [ ] day 3
+  - [ ] rust
+  - [ ] kotlin
+  - [ ] cpp
+  - [ ] go
+- [ ] day 4
+  - [ ] rust
+  - [ ] kotlin
+  - [ ] cpp
+  - [ ] go

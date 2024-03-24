@@ -1,126 +1,29 @@
-"use client";
-
-import { Link, usePathname } from "@/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/navigation";
+import { useLocale } from "next-intl";
 import { FC } from "react";
 
-const getPreviousDayFromPathname = (pathname: string) => {
-  const dayAndPart = pathname.split("/").at(-1);
-  const day = dayAndPart?.split("_").at(0);
-
-  if (day === undefined) {
-    return null;
-  }
-
-  try {
-    const parsedDay = parseInt(day);
-
-    if (isNaN(parsedDay)) {
-      return null;
-    }
-
-    if (parsedDay === 1) {
-      return "0_1";
-    }
-
-    return `${parsedDay - 1}_${1}`;
-  } catch (_) {
-    return null;
-  }
-};
-
-const getNextDayFromPathname = (pathname: string) => {
-  const dayAndPart = pathname.split("/").at(-1);
-  const day = dayAndPart?.split("_").at(0);
-
-  if (day === undefined) {
-    return 1;
-  }
-
-  try {
-    const parsedDay = parseInt(day);
-
-    if (isNaN(parsedDay)) {
-      return 1;
-    }
-
-    if (parsedDay === 3) {
-      return null;
-    }
-
-    return `${parsedDay + 1}_1`;
-  } catch (_) {
-    return null;
-  }
-};
-
 export const NavigationBar: FC<{}> = () => {
-  const t = useTranslations();
-  const pathname = usePathname();
   const locale = useLocale() as "en" | "pl";
 
-  const previousDay = getPreviousDayFromPathname(pathname);
-  const nextDay = getNextDayFromPathname(pathname);
-  const renderHomeLink = pathname !== "/";
-  const renderSolutionLink = pathname !== "/solutions";
-
   return (
-    <div className="flex justify-between p-2">
-      {previousDay === null ? (
-        <div />
-      ) : previousDay === "0_1" ? (
-        <Link href="/solutions" className="underline text-primary">
-          {"<<<"}
-        </Link>
+    <div className="flex justify-center p-2">
+      <span>[</span>
+      {locale === "en" ? (
+        <span>EN</span>
       ) : (
-        <Link
-          href={`/solutions/${previousDay}`}
-          className="underline text-primary"
-        >
-          {"<<<"}
+        <Link href="/" locale="en" className="underline text-primary">
+          EN
         </Link>
       )}
-      <div className="flex flex-col items-center">
-        <div className="flex gap-8">
-          {!renderHomeLink ? null : (
-            <Link href="/" className="underline text-primary">
-              {t("Navigation.home")}
-            </Link>
-          )}
-          {!renderSolutionLink ? null : (
-            <Link href="/solutions" className="underline text-primary">
-              {t("Navigation.solutions")}
-            </Link>
-          )}
-        </div>
-        <div>
-          <span>[</span>
-          {locale === "en" ? (
-            <span>EN</span>
-          ) : (
-            <Link href="/" locale="en" className="underline text-primary">
-              EN
-            </Link>
-          )}
-          <span>/</span>
-          {locale === "pl" ? (
-            <span>PL</span>
-          ) : (
-            <Link href="/" locale="pl" className="underline text-primary">
-              PL
-            </Link>
-          )}
-
-          <span>]</span>
-        </div>
-      </div>
-      {nextDay === null ? (
-        <div />
+      <span>/</span>
+      {locale === "pl" ? (
+        <span>PL</span>
       ) : (
-        <Link href={`/solutions/${nextDay}`} className="underline text-primary">
-          {">>>"}
+        <Link href="/" locale="pl" className="underline text-primary">
+          PL
         </Link>
       )}
+      <span>]</span>
     </div>
   );
 };

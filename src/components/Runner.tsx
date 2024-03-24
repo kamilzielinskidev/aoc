@@ -29,14 +29,15 @@ export const Runner: FC<{
 
   return (
     <div>
-      <div className="font-bold text-2xl">{t("Day.Animation.PlayAround")}</div>
       <div className="mt-2">
         <Textarea
           value={inputValue}
           onChange={handleInputChange}
           disabled={isRunning}
+          rows={8}
         />
       </div>
+      <div className="font-bold text-2xl">{t("Day.Animation.PlayAround")}</div>
       <div className="flex gap-2 mt-2">
         <Button
           className="border-primary text-primary hover:bg-primary-foreground hover:text-primary"

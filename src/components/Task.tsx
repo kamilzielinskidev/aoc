@@ -1,34 +1,14 @@
 import { MarkdownPreview } from "@/components/MarkdownPreview";
-import { MoveInPageDiv } from "@/components/MoveInPageDiv";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Link } from "@/navigation";
 import { tasks } from "@/tasks";
 import { getLocale, getTranslations } from "next-intl/server";
+import { FC } from "react";
 
-const taskIsValid = (task: string): task is `${number}_${number}` => {
-  return /(\d+)_(\d+)/.test(task);
-};
-
-const Task = async ({ params: { task } }: { params: { task: string } }) => {
+export const Task: FC<{ task: `${number}_${number}` }> = async ({ task }) => {
   const locale = (await getLocale()) as "pl" | "en";
   const t = await getTranslations();
 
-  const taskToDisplay = !taskIsValid(task) ? undefined : tasks[task];
-
-  if (taskToDisplay === undefined) {
-    return (
-      <MoveInPageDiv>
-        <div className="p-4">
-          <h1>{t("Solutions.notFound")}</h1>
-          <div className="mt-4">
-            <Link className="underline text-primary" href="/">
-              {t("Solutions.backToHome")}
-            </Link>
-          </div>
-        </div>
-      </MoveInPageDiv>
-    );
-  }
+  const taskToDisplay = tasks[task];
 
   const Interactive = taskToDisplay.Interactive;
 
@@ -81,5 +61,3 @@ const Task = async ({ params: { task } }: { params: { task: string } }) => {
     </div>
   );
 };
-
-export default Task;
