@@ -1,7 +1,7 @@
 "use client";
 
-import { Variants, motion } from "framer-motion";
-import { FC, PropsWithChildren } from "react";
+import { HTMLMotionProps, Variants, motion } from "framer-motion";
+import { FC } from "react";
 
 const aboutSectionVariants: Variants = {
   offscreen: {
@@ -17,13 +17,12 @@ const aboutSectionVariants: Variants = {
   },
 };
 
-export const MoveInDiv: FC<PropsWithChildren<{}>> = ({ children }) => (
+export const MoveInDiv: FC<HTMLMotionProps<"div">> = (props) => (
   <motion.div
     initial="offscreen"
     whileInView="onscreen"
     viewport={{ once: true }}
     variants={aboutSectionVariants}
-  >
-    {children}
-  </motion.div>
+    {...props}
+  />
 );

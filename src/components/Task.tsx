@@ -3,6 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { tasks } from "@/tasks";
 import { getLocale, getTranslations } from "next-intl/server";
 import { FC } from "react";
+import { MoveInDiv } from "./MoveInDiv";
 
 export const Task: FC<{ task: `${number}_${number}` }> = async ({ task }) => {
   const locale = (await getLocale()) as "pl" | "en";
@@ -15,33 +16,21 @@ export const Task: FC<{ task: `${number}_${number}` }> = async ({ task }) => {
   return (
     <div className="py-4">
       <h1>{taskToDisplay.title[locale]}</h1>
-      <Tabs defaultValue="task" className="mt-4">
-        <TabsList className="bg-background border-primary border p-0">
-          <TabsTrigger
-            className="h-full aria-selected:!bg-primary aria-selected:!text-primary-foreground"
-            value="task"
-          >
-            {t("Day.Tabs.Task")}
-          </TabsTrigger>
-          <TabsTrigger
-            className="h-full aria-selected:!bg-primary aria-selected:!text-primary-foreground"
-            value="solutions"
-          >
-            {t("Day.Tabs.Solutions")}
-          </TabsTrigger>
-          <TabsTrigger
-            className="h-full aria-selected:!bg-primary aria-selected:!text-primary-foreground"
-            value="try"
-          >
-            {t("Day.Tabs.Try it")}
-          </TabsTrigger>
-        </TabsList>
-        <TabsContent value="task">
+      <div className="mt-4">
+        <MoveInDiv>
           <MarkdownPreview source={taskToDisplay.description[locale]} />
-        </TabsContent>
-        <TabsContent value="solutions">
+        </MoveInDiv>
+
+        <MoveInDiv className="mt-4">
+          <Interactive initialValue={taskToDisplay.initialValue} />
+        </MoveInDiv>
+
+        <MoveInDiv className="mt-4">
           <Tabs defaultValue="typescript">
-            <TabsList className="bg-background border-primary border p-0">
+            <TabsContent value="typescript">
+              <MarkdownPreview source={taskToDisplay.solution.typescript} />
+            </TabsContent>
+            <TabsList className="bg-background border-primary border p-0 mt-2">
               <TabsTrigger
                 className="h-full aria-selected:!bg-primary aria-selected:!text-primary-foreground"
                 value="typescript"
@@ -49,15 +38,9 @@ export const Task: FC<{ task: `${number}_${number}` }> = async ({ task }) => {
                 TypeScript
               </TabsTrigger>
             </TabsList>
-            <TabsContent value="typescript">
-              <MarkdownPreview source={taskToDisplay.solution.typescript} />
-            </TabsContent>
           </Tabs>
-        </TabsContent>
-        <TabsContent value="try">
-          <Interactive initialValue={taskToDisplay.initialValue} />
-        </TabsContent>
-      </Tabs>
+        </MoveInDiv>
+      </div>
     </div>
   );
 };
