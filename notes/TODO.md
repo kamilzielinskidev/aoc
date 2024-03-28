@@ -44,21 +44,16 @@ For each solution there will be a simple animation showing how the solution work
 - [x] move all solutions to the main page
 - [x] add language switcher
 - [ ] day 1
-  - [ ] rust
+  - [x] rust
   - [ ] kotlin
   - [ ] cpp
   - [ ] go
 - [ ] day 2
-  - [ ] rust
+  - [x] rust
   - [ ] kotlin
   - [ ] cpp
   - [ ] go
 - [ ] day 3
-  - [ ] rust
-  - [ ] kotlin
-  - [ ] cpp
-  - [ ] go
-- [ ] day 4
   - [ ] rust
   - [ ] kotlin
   - [ ] cpp

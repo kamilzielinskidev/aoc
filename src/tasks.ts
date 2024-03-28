@@ -8,6 +8,8 @@ import interactive3_1 from "./tasks/3_1_interactive";
 import typescript1_1 from "./tasks/1_1.typescript";
 import typescript2_1 from "./tasks/2_1.typescript";
 import typescript3_1 from "./tasks/3_1.typescript";
+import rust1_1 from "./tasks/1_1.rust";
+import rust2_1 from "./tasks/2_1.rust";
 
 export const tasks: Record<
   `${number}_${number}`,
@@ -23,6 +25,7 @@ export const tasks: Record<
     };
     solution: {
       typescript: string;
+      rust: string;
     };
     initialValue: string;
     Interactive: FC<{ initialValue: string }>;
@@ -40,6 +43,7 @@ export const tasks: Record<
     },
     solution: {
       typescript: typescript1_1,
+      rust: rust1_1,
     },
     initialValue: task1_1.initialValue,
     Interactive: interactive1_1,
@@ -56,6 +60,7 @@ export const tasks: Record<
     },
     solution: {
       typescript: typescript2_1,
+      rust: rust2_1,
     },
     initialValue: task2_1.initialValue,
     Interactive: interactive2_1,
@@ -72,6 +77,7 @@ export const tasks: Record<
     },
     solution: {
       typescript: typescript3_1,
+      rust: 'WIP'
     },
     initialValue: task3_1.initialValue,
     Interactive: interactive3_1,
