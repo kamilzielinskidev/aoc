@@ -10,6 +10,7 @@ import typescript2_1 from "./tasks/2_1.typescript";
 import typescript3_1 from "./tasks/3_1.typescript";
 import rust1_1 from "./tasks/1_1.rust";
 import rust2_1 from "./tasks/2_1.rust";
+import rust3_1 from "./tasks/3_1.rust";
 
 export const tasks: Record<
   `${number}_${number}`,
@@ -77,7 +78,7 @@ export const tasks: Record<
     },
     solution: {
       typescript: typescript3_1,
-      rust: 'WIP'
+      rust: rust3_1,
     },
     initialValue: task3_1.initialValue,
     Interactive: interactive3_1,
