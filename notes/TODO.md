@@ -46,15 +46,12 @@ For each solution there will be a simple animation showing how the solution work
 - [ ] day 1
   - [x] rust
   - [ ] kotlin
-  - [ ] cpp
   - [ ] go
 - [ ] day 2
   - [x] rust
   - [ ] kotlin
-  - [ ] cpp
   - [ ] go
 - [ ] day 3
-  - [ ] rust
+  - [x] rust
   - [ ] kotlin
-  - [ ] cpp
   - [ ] go
