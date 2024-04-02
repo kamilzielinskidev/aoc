@@ -45,13 +45,14 @@ For each solution there will be a simple animation showing how the solution work
 - [x] add language switcher
 - [ ] day 1
   - [x] rust
-  - [ ] kotlin
+  - [x] kotlin
   - [ ] go
 - [ ] day 2
   - [x] rust
-  - [ ] kotlin
+  - [x] kotlin
   - [ ] go
 - [ ] day 3
   - [x] rust
-  - [ ] kotlin
+  - [x] kotlin
   - [ ] go
+- [ ] icons for languages

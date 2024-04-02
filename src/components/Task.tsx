@@ -33,6 +33,9 @@ export const Task: FC<{ task: `${number}_${number}` }> = async ({ task }) => {
             <TabsContent value="rust">
               <MarkdownPreview source={taskToDisplay.solution.rust} />
             </TabsContent>
+            <TabsContent value="kotlin">
+              <MarkdownPreview source={taskToDisplay.solution.kotlin} />
+            </TabsContent>
             <TabsList className="bg-background border-primary border p-0 mt-2">
               <TabsTrigger
                 className="h-full aria-selected:!bg-primary aria-selected:!text-primary-foreground"
@@ -45,6 +48,12 @@ export const Task: FC<{ task: `${number}_${number}` }> = async ({ task }) => {
                 value="rust"
               >
                 Rust
+              </TabsTrigger>
+              <TabsTrigger
+                className="h-full aria-selected:!bg-primary aria-selected:!text-primary-foreground"
+                value="kotlin"
+              >
+                Kotlin
               </TabsTrigger>
             </TabsList>
           </Tabs>

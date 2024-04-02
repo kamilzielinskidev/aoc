@@ -76,7 +76,6 @@ fn solution(data: &str) -> Result<i32, Box<dyn std::error::Error>> {
         .collect::<Vec<&Result<(i32, Vec<(i32, i32, i32)>), String>>>();
 
     // Sum number of gameids for valid_lines
-
     let sum = valid_lines
         .iter()
         .map(|line| {
