@@ -36,6 +36,9 @@ export const Task: FC<{ task: `${number}_${number}` }> = async ({ task }) => {
             <TabsContent value="kotlin">
               <MarkdownPreview source={taskToDisplay.solution.kotlin} />
             </TabsContent>
+            <TabsContent value="go">
+              <MarkdownPreview source={taskToDisplay.solution.go} />
+            </TabsContent>
             <TabsList className="bg-background border-primary border p-0 mt-2">
               <TabsTrigger
                 className="h-full aria-selected:!bg-primary aria-selected:!text-primary-foreground"
@@ -54,6 +57,12 @@ export const Task: FC<{ task: `${number}_${number}` }> = async ({ task }) => {
                 value="kotlin"
               >
                 Kotlin
+              </TabsTrigger>
+              <TabsTrigger
+                className="h-full aria-selected:!bg-primary aria-selected:!text-primary-foreground"
+                value="go"
+              >
+                Go
               </TabsTrigger>
             </TabsList>
           </Tabs>

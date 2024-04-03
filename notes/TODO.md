@@ -22,11 +22,11 @@ For each solution there will be a simple animation showing how the solution work
 - [x] create list page for showing all days
 - [x] create a blog page
 - [x] smooth animation between rerouting
-- [ ] create a day template
+- [x] create a day template
   - [x] title
   - [x] tabs for switching between description/solutions/animation
   - [x] task description
-  - [ ] task solutions
+  - [x] task solutions
   - [x] task animation with run and reset buttons
 - [x] day 1
   - [x] create page for day 1
@@ -43,10 +43,10 @@ For each solution there will be a simple animation showing how the solution work
 - [x] remove posts
 - [x] move all solutions to the main page
 - [x] add language switcher
-- [ ] day 1
+- [x] day 1
   - [x] rust
   - [x] kotlin
-  - [ ] go
+  - [x] go
 - [ ] day 2
   - [x] rust
   - [x] kotlin
@@ -56,3 +56,4 @@ For each solution there will be a simple animation showing how the solution work
   - [x] kotlin
   - [ ] go
 - [ ] icons for languages
+- [ ] add information about editable data

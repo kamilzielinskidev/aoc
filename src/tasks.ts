@@ -14,6 +14,7 @@ import rust3_1 from "./tasks/3_1.rust";
 import kotlin1_1 from "./tasks/1_1.kotlin";
 import kotlin2_1 from "./tasks/2_1.kotlin";
 import kotlin3_1 from "./tasks/3_1.kotlin";
+import go1_1 from "./tasks/1_1.go";
 
 export const tasks: Record<
   `${number}_${number}`,
@@ -31,6 +32,7 @@ export const tasks: Record<
       typescript: string;
       rust: string;
       kotlin: string;
+      go: string;
     };
     initialValue: string;
     Interactive: FC<{ initialValue: string }>;
@@ -50,6 +52,7 @@ export const tasks: Record<
       typescript: typescript1_1,
       rust: rust1_1,
       kotlin: kotlin1_1,
+      go: go1_1,
     },
     initialValue: task1_1.initialValue,
     Interactive: interactive1_1,
@@ -68,6 +71,7 @@ export const tasks: Record<
       typescript: typescript2_1,
       rust: rust2_1,
       kotlin: kotlin2_1,
+      go: "",
     },
     initialValue: task2_1.initialValue,
     Interactive: interactive2_1,
@@ -86,6 +90,7 @@ export const tasks: Record<
       typescript: typescript3_1,
       rust: rust3_1,
       kotlin: kotlin3_1,
+      go: "",
     },
     initialValue: task3_1.initialValue,
     Interactive: interactive3_1,
