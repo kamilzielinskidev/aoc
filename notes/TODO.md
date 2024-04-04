@@ -47,13 +47,13 @@ For each solution there will be a simple animation showing how the solution work
   - [x] rust
   - [x] kotlin
   - [x] go
-- [ ] day 2
+- [x] day 2
   - [x] rust
   - [x] kotlin
-  - [ ] go
-- [ ] day 3
+  - [x] go
+- [x] day 3
   - [x] rust
   - [x] kotlin
-  - [ ] go
+  - [x] go
 - [ ] icons for languages
 - [ ] add information about editable data

@@ -15,6 +15,8 @@ import kotlin1_1 from "./tasks/1_1.kotlin";
 import kotlin2_1 from "./tasks/2_1.kotlin";
 import kotlin3_1 from "./tasks/3_1.kotlin";
 import go1_1 from "./tasks/1_1.go";
+import go2_1 from "./tasks/2_1.go";
+import go3_1 from "./tasks/3_1.go";
 
 export const tasks: Record<
   `${number}_${number}`,
@@ -71,7 +73,7 @@ export const tasks: Record<
       typescript: typescript2_1,
       rust: rust2_1,
       kotlin: kotlin2_1,
-      go: "",
+      go: go2_1,
     },
     initialValue: task2_1.initialValue,
     Interactive: interactive2_1,
@@ -90,7 +92,7 @@ export const tasks: Record<
       typescript: typescript3_1,
       rust: rust3_1,
       kotlin: kotlin3_1,
-      go: "",
+      go: go3_1,
     },
     initialValue: task3_1.initialValue,
     Interactive: interactive3_1,

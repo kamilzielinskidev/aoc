@@ -16,8 +16,7 @@ fun solution(data: String): Int {
         for ((j, c) in line.withIndex()) {
             // Taking in consideration only the digits
             if (c.isDigit()) {
-                // Modifying the current number so that it can be a multi-digit number, e.g. [1, 2,
-                // 3] -> 123
+                // Modifying the current number so that it can be a multi-digit number, e.g. [1, 2, 3] -> 123
                 currentNumber = currentNumber * 10 + c.toString().toInt()
 
                 val m = matrix
