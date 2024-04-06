@@ -52,7 +52,7 @@ export const Task: FC<{ task: `${number}_${number}` }> = async ({ task }) => {
                   <span>
                     <Image
                       src={TypeScriptIcon}
-                      alt="TypeScript"
+                      alt="typescript logo icon"
                       width={24}
                       height={24}
                     />
@@ -66,7 +66,12 @@ export const Task: FC<{ task: `${number}_${number}` }> = async ({ task }) => {
               >
                 <div className="flex gap-2 items-center">
                   <span>
-                    <Image src={RustIcon} alt="Rust" width={24} height={24} />
+                    <Image
+                      src={RustIcon}
+                      alt="rust logo icon"
+                      width={24}
+                      height={24}
+                    />
                   </span>
                   <span>Rust</span>
                 </div>
@@ -79,7 +84,7 @@ export const Task: FC<{ task: `${number}_${number}` }> = async ({ task }) => {
                   <span>
                     <Image
                       src={KotlinIcon}
-                      alt="Kotlin"
+                      alt="kotlin logo icon"
                       width={24}
                       height={24}
                     />
@@ -93,7 +98,12 @@ export const Task: FC<{ task: `${number}_${number}` }> = async ({ task }) => {
               >
                 <div className="flex gap-2 items-center">
                   <span>
-                    <Image src={GoIcon} alt="Go" width={24} height={24} />
+                    <Image
+                      src={GoIcon}
+                      alt="go logo icon"
+                      width={24}
+                      height={24}
+                    />
                   </span>
                   <span>Go</span>
                 </div>

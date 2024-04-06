@@ -234,6 +234,7 @@ const Animation: FC<{ data: string }> = ({ data }) => {
 export const Interactive: FC<{ initialValue: string }> = ({ initialValue }) => {
   return (
     <Runner
+      id="3_1"
       initialData={initialValue}
       animateComponent={(data) => <Animation data={data} />}
     />
