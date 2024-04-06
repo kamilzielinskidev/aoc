@@ -1,32 +1,9 @@
 {
   "Navigation": {
-    "home": "Home",
-    "solutions": "Solutions"
-  },
-  "Solutions": {
-    "title": "Solutions",
-    "notFound": "Solution not found :(",
-    "backToHome": "Back to home"
+    "home": "Home"
   },
   "Home": {
-    "title": "Advent of Code 2023 Solutions",
-    "header": {
-      "goToAbout": "About",
-      "goToSolutions": "Solutions"
-    },
-    "about": "About",
-    "whatIs": {
-      "title": "What is Advent of Code?",
-      "text": "Advent of Code is an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like."
-    },
-    "why": {
-      "title": "Why am I doing this?",
-      "text": "I'm doing this to learn new languages and to improve my problem solving skills."
-    },
-    "whatWillYouFind": {
-      "title": "What will you find here?",
-      "text": "You will find my solutions to the Advent of Code 2023 puzzles in four different languages: TypeScript, Kotlin, Rust, Go and C++.\n\nYou will also be able to put your own input and see the result of the solution.\n\nAdditionally, you will find simple animations and visualizations of how the solutions work."
-    }
+    "title": "Advent of Code 2023 Solutions"
   },
   "Day": {
     "Tabs": {

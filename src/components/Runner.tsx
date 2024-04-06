@@ -54,13 +54,16 @@ export const Runner: FC<{
             {t("Day.Animation.Reset")}
           </Button>
         ) : (
-          <Button
-            className="border-primary text-primary hover:bg-primary-foreground hover:text-primary"
-            variant="outline"
-            onClick={handleRun}
-          >
-            {t("Day.Animation.Run")}
-          </Button>
+          <div className="flex gap-2 items-center">
+            <Button
+              className="border-primary text-primary hover:bg-primary-foreground hover:text-primary"
+              variant="outline"
+              onClick={handleRun}
+            >
+              {t("Day.Animation.Run")}
+            </Button>
+            <div>{t("Day.Animation.PlayAround")}</div>
+          </div>
         )}
       </div>
     </div>

@@ -1,32 +1,9 @@
 {
   "Navigation": {
-    "home": "Strona główna",
-    "solutions": "Rozwiązania"
-  },
-  "Solutions": {
-    "title": "Rozwiązania",
-    "notFound": "Nie znaleziono Rozwiązania :(",
-    "backToHome": "Powrót do strony głównej"
+    "home": "Strona główna"
   },
   "Home": {
-    "title": "Advent of Code 2023 Rozwiązania",
-    "header": {
-      "goToAbout": "O projekcie",
-      "goToSolutions": "Rozwiązania"
-    },
-    "about": "O projekcie",
-    "whatIs": {
-      "title": "Czym jest Advent of Code?",
-      "text": "Advent of Code to kalendarz adwentowy z zagadkami algorytmicznymi, które można rozwiązać w dowolnym języku programowania."
-    },
-    "why": {
-      "title": "Dlaczego to robię?",
-      "text": "Robię to, żeby poprawić swoje umiejętności rozwiązywania problemów programistycznych."
-    },
-    "whatWillYouFind": {
-      "title": "Co tutaj znajdziesz?",
-      "text": "Znajdziesz tutaj moje rozwiązania zagadek z Advent of Code 2023 w czterech różnych językach programowania: TypeScript, Kotlin, Rust, Go i C++.\n\nBędziesz mógł również podać własne dane wejściowe i zobaczyć wynik działania rozwiązania.\n\nDodatkowo, znajdziesz tutaj proste animacje i wizualizacje tego jak działają rozwiązania."
-    }
+    "title": "Advent of Code 2023 Rozwiązania"
   },
   "Day": {
     "Tabs": {

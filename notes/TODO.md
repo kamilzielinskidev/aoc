@@ -55,5 +55,5 @@ For each solution there will be a simple animation showing how the solution work
   - [x] rust
   - [x] kotlin
   - [x] go
-- [ ] icons for languages
+- [x] icons for languages
 - [ ] add information about editable data

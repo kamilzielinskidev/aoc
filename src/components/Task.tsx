@@ -1,13 +1,17 @@
 import { MarkdownPreview } from "@/components/MarkdownPreview";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { tasks } from "@/tasks";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getLocale } from "next-intl/server";
 import { FC } from "react";
 import { MoveInDiv } from "./MoveInDiv";
+import GoIcon from "../icons/go-svgrepo-com.svg";
+import KotlinIcon from "../icons/kotlin-svgrepo-com.svg";
+import RustIcon from "../icons/rust-svgrepo-com.svg";
+import TypeScriptIcon from "../icons/typescript-svgrepo-com.svg";
+import Image from "next/image";
 
 export const Task: FC<{ task: `${number}_${number}` }> = async ({ task }) => {
   const locale = (await getLocale()) as "pl" | "en";
-  const t = await getTranslations();
 
   const taskToDisplay = tasks[task];
 
@@ -44,25 +48,55 @@ export const Task: FC<{ task: `${number}_${number}` }> = async ({ task }) => {
                 className="h-full aria-selected:!bg-primary aria-selected:!text-primary-foreground"
                 value="typescript"
               >
-                TypeScript
+                <div className="flex gap-2 items-center">
+                  <span>
+                    <Image
+                      src={TypeScriptIcon}
+                      alt="TypeScript"
+                      width={24}
+                      height={24}
+                    />
+                  </span>
+                  <span>TypeScript</span>
+                </div>
               </TabsTrigger>
               <TabsTrigger
                 className="h-full aria-selected:!bg-primary aria-selected:!text-primary-foreground"
                 value="rust"
               >
-                Rust
+                <div className="flex gap-2 items-center">
+                  <span>
+                    <Image src={RustIcon} alt="Rust" width={24} height={24} />
+                  </span>
+                  <span>Rust</span>
+                </div>
               </TabsTrigger>
               <TabsTrigger
                 className="h-full aria-selected:!bg-primary aria-selected:!text-primary-foreground"
                 value="kotlin"
               >
-                Kotlin
+                <div className="flex gap-2 items-center">
+                  <span>
+                    <Image
+                      src={KotlinIcon}
+                      alt="Kotlin"
+                      width={24}
+                      height={24}
+                    />
+                  </span>
+                  <span>Kotlin</span>
+                </div>
               </TabsTrigger>
               <TabsTrigger
                 className="h-full aria-selected:!bg-primary aria-selected:!text-primary-foreground"
                 value="go"
               >
-                Go
+                <div className="flex gap-2 items-center">
+                  <span>
+                    <Image src={GoIcon} alt="Go" width={24} height={24} />
+                  </span>
+                  <span>Go</span>
+                </div>
               </TabsTrigger>
             </TabsList>
           </Tabs>
