@@ -23,12 +23,7 @@ export default function RootLayout({
 
   return (
     <html lang={locale}>
-      <body
-        className={cn(
-          "bg-background antialiased dark text-foreground",
-          jetBrains.className
-        )}
-      >
+      <body className={cn("bg-background antialiased", jetBrains.className)}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>

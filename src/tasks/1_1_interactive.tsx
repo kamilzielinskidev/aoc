@@ -71,7 +71,7 @@ const Animation: FC<{ data: string }> = ({ data }) => {
             <span
               key={j}
               className={`${
-                char.color === "white" ? "text-white" : "text-primary"
+                char.color === "white" ? "text-secondary" : "text-primary"
               }`}
             >
               {char.char}
